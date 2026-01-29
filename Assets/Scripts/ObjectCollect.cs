@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectCollect : MonoBehaviour
 {
-    [Tooltip("0 - Kitap, 1 - Oyuncak, 2 - Labirent")]
+    [Tooltip("0 - Kitap, 1 - Oyuncak, 2 - Labirent, 3 - Kürek")]
     public int hangiNesne;
     public GameObject collectText;
     private bool inArea = false;
