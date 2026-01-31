@@ -12,7 +12,7 @@ public GameObject helperText;
         }
     }
     private void ShowText()
-    {
+    {   
         helperText.SetActive(true);
     }
     private void DestroyMe()
