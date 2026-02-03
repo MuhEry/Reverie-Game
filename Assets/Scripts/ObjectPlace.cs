@@ -2,36 +2,51 @@ using UnityEngine;
 
 public class ObjectPlace : MonoBehaviour
 {
+    [Tooltip("0 - Kitap, 1 - Oyuncak, 2 - Labirent")]
+    public int placeObjectNumber;
+    [Tooltip("0 - Kitap, 1 - Oyuncak, 2 - Labirent")]
+    public GameObject placeObjects;
+    public GameObject placeText;
+    public GameObject findObjectText;
+
+    private bool inArea = false;
     void Update()
     {
-        /*if (inArea && Input.GetKeyDown(KeyCode.F))
+        if (inArea && Input.GetKeyDown(KeyCode.F))
         {
-            if (Manager.manager.durumlar[2])
+            if (Manager.manager.durumlar[placeObjectNumber])
             {
-                useShovelText.SetActive(false);
-                blackoutAnimator.SetTrigger("blackout");
-                Invoke("deleteObjectWithDelay", 1f);
+                placeText.SetActive(false);
+                placeObjects.SetActive(true);
+                Manager.manager.placedObjectCount++;
+                Destroy(gameObject);
             }
             else
             {
-                noShovelText.SetActive(true);
-                Invoke("HideNoShovelText", 2f);
+                placeText.SetActive(false);
+                findObjectText.SetActive(true);
+                Invoke("HideFindObjectText", 2f);
             }
-        }*/
+        }
     }
-
+    private void HideFindObjectText()
+    {
+        findObjectText.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-
+            placeText.SetActive(true);
+            inArea = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-
+            placeText.SetActive(false);
+            inArea = false;
         }
     }
 }
