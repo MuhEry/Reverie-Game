@@ -14,4 +14,9 @@ public class Manager : MonoBehaviour
             manager = this;
         }
     }
+    public void WinLevel()
+    {
+        Debug.Log("Level won!");
+        
+    }
 }

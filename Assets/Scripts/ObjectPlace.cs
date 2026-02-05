@@ -20,6 +20,10 @@ public class ObjectPlace : MonoBehaviour
                 placeObjects.SetActive(true);
                 Manager.manager.placedObjectCount++;
                 Destroy(gameObject);
+                if (Manager.manager.placedObjectCount == 3)
+                {
+                    Manager.manager.WinLevel();
+                }
             }
             else
             {
