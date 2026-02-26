@@ -10,12 +10,10 @@ public Animator animator;
 
     public void OpenEye()
     {
-        animator.SetFloat("speed",-1);
-        animator.SetTrigger("play");
+        animator.SetTrigger("open");
     }
     public void CloseEye()
     {
-        animator.SetFloat("speed",1);
-        animator.SetTrigger("play");
+        animator.SetTrigger("close");
     }
 }
